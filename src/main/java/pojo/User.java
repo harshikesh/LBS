@@ -12,6 +12,8 @@ public class User {
     private String number;
     private double lat;
     private double lon;
+    private String device_id;
+    private String gcm_id;
 
     public String getName() {
         return name;
@@ -27,5 +29,13 @@ public class User {
 
     public double getLon() {
         return lon;
+    }
+
+    public String getDeviceId() {
+        return device_id;
+    }
+
+    public String getGcmId() {
+        return gcm_id;
     }
 }

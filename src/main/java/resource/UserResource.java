@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * Created by harshikesh.kumar on 21/06/16.
-*/
+ */
 
 
 @Path("/users")
@@ -35,16 +35,21 @@ public class UserResource {
     public JSONObject postUserList(JSONObject jsp) {
         UserRepositiory urepo = new UserRepositiory();
         Gson gson = new Gson();
-        User user = gson.fromJson(jsp.toJSONString(),User.class);
-        System.out.println("lat " +user.getLat());
-       // urepo.insertUserInfo(user);
-
+        User user = gson.fromJson(jsp.toJSONString(), User.class);
+        System.out.println("lat " + user.getLat());
+        String success = "User Successfully added";
+        try {
+            urepo.insertUserInfo(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            success = "Adding user failed";
+        }
         JSONObject js = new JSONObject();
-        js.put("Key", "SUCCESS");
+        js.put("Key", success);
         return js;
     }
 
-    @Path("getfriendsloc")
+    @Path("getMyInfo")
     @GET
     @Consumes()
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,15 +57,14 @@ public class UserResource {
     public JSONObject getUserList(JSONObject jsp) {
         UserRepositiory urepo = new UserRepositiory();
         Gson gson = new Gson();
-        User user = gson.fromJson(jsp.toJSONString(),User.class);
-        System.out.println("lat " +user.getLat());
+        User user = gson.fromJson(jsp.toJSONString(), User.class);
+        System.out.println("lat " + user.getLat());
         urepo.getUserInfo(user);
 
         JSONObject js = new JSONObject();
         js.put("Key", "SUCCESS");
         return js;
     }
-
 
 
 }

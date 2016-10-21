@@ -3,9 +3,7 @@ package application;
 import conf.MyConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
-import pojo.User;
 import resource.UserResource;
-import resource.Users;
 
 public class TrackingServiceApplication extends Application<MyConfiguration>{
 

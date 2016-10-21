@@ -11,7 +11,8 @@ public class UserDocument extends Document {
     public static String number = "number";
     public static String lat = "lat";
     public static String lon = "lon";
-    public static String friends = "friends";
+    public static String device_id = "device_id";
+    public static String gcm_id = "gcm_id";
 
     @Override
     public Document append(String key, Object value) {
