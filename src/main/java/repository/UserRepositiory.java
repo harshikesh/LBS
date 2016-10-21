@@ -1,13 +1,9 @@
 package repository;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.result.UpdateResult;
 import doument.UserDocument;
 import mongo.ConnectionManager;
 import org.bson.Document;
-import org.bson.types.Code;
-import pojo.Friends;
 import pojo.User;
 
 import static utils.Constants.USER_DB;
@@ -28,7 +24,7 @@ public class UserRepositiory {
         doc.put(UserDocument.lat, user.getLat());
         doc.put(UserDocument.lon, user.getLon());
         doc.put(UserDocument.device_id, user.getDeviceId());
-        doc.put(UserDocument.gcm_id, user.getGcmId());
+        doc.put(UserDocument.user_gcm_id, user.getUserGcmId());
 
         MongoCollection mongoCollec = ConnectionManager.getInstance().getDb(USER_DB).getCollection(USER_LOCATION_COLLECTION);
         if (mongoCollec.find(new Document().append(UserDocument.device_id, user.getDeviceId())) != null) {

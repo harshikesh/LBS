@@ -13,7 +13,7 @@ public class User {
     private double lat;
     private double lon;
     private String device_id;
-    private String gcm_id;
+    private String user_gcm_id;
 
     public String getName() {
         return name;
@@ -35,7 +35,7 @@ public class User {
         return device_id;
     }
 
-    public String getGcmId() {
-        return gcm_id;
+    public String getUserGcmId() {
+        return user_gcm_id;
     }
 }
